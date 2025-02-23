@@ -80,7 +80,7 @@ async function fetchData() {
             method: 'GET',
             headers: {
                 'Cache-Control': 'no-cache',
-                'app_key': '3db56867d404421a91442b31d4c832c7'
+                'app_key': 'YOUR_API_KEY_HERE', // Replace with your own API key
             }
         });
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
