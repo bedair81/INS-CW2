@@ -12,3 +12,13 @@ The website allows users to view crowding information at selected London tube st
 - **Code Cleanup**: Streamlined the HTML, CSS, and JavaScript files with better comments, consistent naming conventions, and organized structure for easier maintenance.
 
 This project serves as an example of building a responsive, user-friendly web application that integrates external APIs and adapts to user preferences.
+
+## Setting Up the API Key
+This project uses the Transport for London (TfL) API to fetch crowding data. To run the application locally, you will need to obtain your own API key from the TfL API portal and insert it into the code. Follow these steps:
+
+1. Visit the [TfL API Portal](https://api-portal.tfl.gov.uk/) and sign up for a free account.
+2. Once registered, navigate to the "My Account" section to find your API key.
+3. Copy your API key.
+4. In the `scripts.js` file (located in the `js` directory), find the line:
+   ```javascript
+   'app_key': 'YOUR_API_KEY_HERE', // Replace with your own API key
