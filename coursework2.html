@@ -12,50 +12,80 @@
     <script src="js/scripts.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>View Crowding Info at Tube Stations</h1>
-        <form id="crowding-form">
-            <div class="mb-3">
-                <label for="station-select" class="form-label">Station:</label>
-                <select class="form-select" id="station-select" name="station">
-                    <option value="940GZZLUPAC">Paddington</option>
-                    <option value="940GZZLUKSX">King's Cross St Pancras</option>
-                    <option value="940GZZLUEUS">Euston</option>
-                    <option value="940GZZLUWLO">Waterloo</option>
-                    <option value="940GZZLULNB">London Bridge</option>
-                    <option value="940GZZLULVT">Liverpool Street</option>
-                </select>
+    <!-- Form Section -->
+    <div class="container my-4">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">View Crowding Info at Tube Stations</h1>
+                <p class="card-text">Select a station and a day of the week to view crowding information.</p>
+                <form id="crowding-form">
+                    <div class="mb-3">
+                        <label for="station-select" class="form-label">Station:</label>
+                        <select class="form-select" id="station-select" name="station">
+                            <option value="940GZZLUPAC">Paddington</option>
+                            <option value="940GZZLUKSX">King's Cross St Pancras</option>
+                            <option value="940GZZLUEUS">Euston</option>
+                            <option value="940GZZLUWLO">Waterloo</option>
+                            <option value="940GZZLULNB">London Bridge</option>
+                            <option value="940GZZLULVT">Liverpool Street</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="day-select" class="form-label">Day of Week:</label>
+                        <select class="form-select" name="dayofweek" id="day-select">
+                            <option value="mon">Monday</option>
+                            <option value="tue">Tuesday</option>
+                            <option value="wed">Wednesday</option>
+                            <option value="thu">Thursday</option>
+                            <option value="fri">Friday</option>
+                            <option value="sat">Saturday</option>
+                            <option value="sun">Sunday</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="fetchdata()">View crowding info!</button>
+                </form>
             </div>
-            <div class="mb-3">
-                <label for="day-select" class="form-label">Day of Week:</label>
-                <select class="form-select" name="dayofweek" id="day-select">
-                    <option value="mon">Monday</option>
-                    <option value="tue">Tuesday</option>
-                    <option value="wed">Wednesday</option>
-                    <option value="thu">Thursday</option>
-                    <option value="fri">Friday</option>
-                    <option value="sat">Saturday</option>
-                    <option value="sun">Sunday</option>
-                </select>
+        </div>
+    </div>
+
+    <!-- Chart Section -->
+    <div class="container my-4">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Crowding Level Chart</h2>
+                <canvas id="myChart"></canvas>
             </div>
-            <button type="button" class="btn btn-light" onclick="fetchdata()">View crowding info!</button>
-        </form>
+        </div>
     </div>
 
-    <div class="container">
-        <h2>Crowding Level Chart</h2>
-        <canvas id="myChart"></canvas>
+    <!-- Peak Times Section -->
+    <div class="container my-4">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Peak Crowding Times</h2>
+                <div class="alert alert-info" role="alert">
+                    AM Peak: <span id="ampeak"></span>
+                </div>
+                <div class="alert alert-info" role="alert">
+                    PM Peak: <span id="pmpeak"></span>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="container">
-        <h2>Peak Crowding Times</h2>
-        <p>AM Peak: <span id="ampeak"></span></p>
-        <p>PM Peak: <span id="pmpeak"></span></p>
+    <!-- Table Section -->
+    <div class="container my-4">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Table of Crowding Info</h2>
+                <table id="crowding-table" class="table table-striped table-hover"></table>
+            </div>
+        </div>
     </div>
 
-    <div class="container">
-        <h2>Table of Crowding Info</h2>
-        <table id="crowding-table" class="table"></table>
-    </div>
+    <!-- Footer -->
+    <footer class="container text-center py-3">
+        <p>Data provided by Transport for London (TfL) API.</p>
+    </footer>
 </body>
 </html>
