@@ -1,0 +1,26 @@
+/* Smaller table styles for compact display */
+.table-smaller {
+    font-size: 0.9rem;
+}
+.table-smaller th, .table-smaller td {
+    padding: 0.5rem;
+}
+
+/* Dark mode enhancements */
+[data-bs-theme="dark"] {
+    /* Body background */
+    body { background-color: #212529; }
+    /* Table text and borders */
+    .table-smaller { color: #f8f9fa; }
+    .table-smaller th, .table-smaller td { border-color: #495057; }
+    /* Card styling */
+    .card { background-color: #343a40; }
+    .card-body { color: #f8f9fa; }
+    /* Footer text */
+    footer { color: #f8f9fa; }
+}
+
+/* Light mode footer */
+footer {
+    color: #212529;
+}

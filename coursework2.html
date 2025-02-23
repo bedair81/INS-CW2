@@ -1,23 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>View Crowding Info at Tube Stations</title>
+    <title>Tube Station Crowding Viewer</title>
+    <!-- Bootstrap CSS for responsive design -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" 
           rel="stylesheet" 
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" 
           crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Inline script to set initial theme based on system preference -->
+    <script>
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+        }
+    </script>
+    <!-- Chart.js for rendering crowding charts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" defer></script>
+    <!-- Custom JavaScript, deferred to ensure DOM is loaded -->
+    <script src="js/scripts.js" defer></script>
 </head>
 <body>
-    <!-- Form Section -->
+    <!-- Form section for selecting station and day -->
     <div class="container my-4">
         <div class="card">
             <div class="card-body">
                 <h1 class="card-title">View Crowding Info at Tube Stations</h1>
-                <p class="card-text">Select a station and a day of the week to view crowding information.</p>
+                <p class="card-text">Select a station and day to see crowding data.</p>
                 <form id="crowding-form">
                     <div class="mb-3">
                         <label for="station-select" class="form-label">Station:</label>
@@ -32,7 +43,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="day-select" class="form-label">Day of Week:</label>
-                        <select class="form-select" name="dayofweek" id="day-select">
+                        <select class="form-select" id="day-select" name="dayofweek">
                             <option value="mon">Monday</option>
                             <option value="tue">Tuesday</option>
                             <option value="wed">Wednesday</option>
@@ -42,13 +53,13 @@
                             <option value="sun">Sunday</option>
                         </select>
                     </div>
-                    <button type="button" class="btn btn-primary" onclick="fetchdata()">View crowding info!</button>
+                    <button type="button" class="btn btn-primary" onclick="fetchData()">View Crowding Info</button>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- Chart Section -->
+    <!-- Chart section for visualizing crowding levels -->
     <div class="container my-4">
         <div class="card">
             <div class="card-body">
@@ -58,7 +69,7 @@
         </div>
     </div>
 
-    <!-- Peak Times Section -->
+    <!-- Peak times section for AM/PM peaks -->
     <div class="container my-4">
         <div class="card">
             <div class="card-body">
@@ -73,19 +84,26 @@
         </div>
     </div>
 
-    <!-- Table Section -->
+    <!-- Table section for detailed crowding data -->
     <div class="container my-4">
         <div class="card">
             <div class="card-body">
-                <h2 class="card-title">Table of Crowding Info</h2>
-                <table id="crowding-table" class="table table-striped table-hover"></table>
+                <h2 class="card-title">Crowding Info Table</h2>
+                <div class="table-responsive">
+                    <table id="crowding-table" class="table table-striped table-hover table-smaller"></table>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer with data source attribution -->
     <footer class="container text-center py-3">
         <p>Data provided by Transport for London (TfL) API.</p>
     </footer>
+
+    <!-- Bootstrap JS for interactive components -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" 
+            crossorigin="anonymous"></script>
 </body>
 </html>
